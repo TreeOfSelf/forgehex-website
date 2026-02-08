@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Anonymous Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('AnonymousPro-Bold.woff2') format('woff2');
+}
+
+@theme {
+  --color-void: #111;
+  --color-plate: #212121;
+  --color-main: #dee3e8;
+  --color-mute: #b0b8c1;
+  --color-rust: #f39658;
+  --color-glow: #a3a3ff;
+  --font-heading: 'Anonymous Pro', monospace;
+  --font-body:
+    system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
