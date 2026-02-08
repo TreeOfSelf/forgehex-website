@@ -1,0 +1,42 @@
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.nuxt-icon {
+  margin-bottom: 0 !important;
+}
+
+a:not([class*='text-']) {
+  color: var(--color-main);
+  transition-property: color;
+  transition-duration: var(--default-transition-duration);
+}
+
+a:not([class*='text-']):hover {
+  color: var(--color-glow);
+}
+
+.forgehex-badge-square {
+  padding: 4px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: var(--color-void);
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.forgehex-badge-square .forgehex-cog {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.forgehex-badge-square:hover .forgehex-cog {
+  transform: rotate(360deg);
+}

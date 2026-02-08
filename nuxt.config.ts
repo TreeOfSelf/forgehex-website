@@ -29,9 +29,9 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', 'nuxt-svgo', '@nuxt/image'],
   image: {
-    formats: ['avif', 'webp'],
+    format: ['avif', 'webp'],
     quality: 70,
     screens: {
       xs: 320,
@@ -43,16 +43,23 @@ export default defineNuxtConfig({
     },
     densities: [1, 2],
   },
-  icon: {
-    customCollections: [
-      {
-        prefix: 'custom-icons',
-        dir: './app/assets/icon',
-      },
-    ],
+  svgo: {
+    svgoConfig: {
+      plugins: [
+        {
+          name: 'preset-default',
+          params: {
+            overrides: {
+              cleanupIds: false,
+            },
+          },
+        },
+      ],
+    },
   },
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
   vite: {
+    // @ts-expect-error Nuxt issue with plugin type
     plugins: [tailwindcss()],
   },
 });
