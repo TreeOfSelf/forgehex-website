@@ -191,7 +191,7 @@ watch(state, (gltf) => {
 </script>
 
 <template>
-  <TresGroup ref="groupRef" :position="[0, -2.2, 0]">
+  <TresGroup ref="groupRef" :position="[0, -1.5, 0]">
     <primitive v-if="state" :object="state.scene" />
   </TresGroup>
 </template>
