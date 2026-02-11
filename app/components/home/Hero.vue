@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { TresCanvas } from '@tresjs/core';
-import { OrbitControls } from '@tresjs/cientos';
 import { NoToneMapping } from 'three';
 
 import Logo from '~/assets/svg/forgehexlogo.svg';
@@ -9,10 +8,11 @@ import Logo from '~/assets/svg/forgehexlogo.svg';
 const mounted = ref(false);
 const rustColor = ref('#F39658');
 
-const canvasWidth = ref(560);
-const canvasHeight = ref(370);
+const canvasWidth = ref(600);
+const canvasHeight = ref(700);
+const modelScale = ref(70);
 
-const modelScale = ref(45);
+const cameraTarget = [-1, -0.5, 1];
 
 const cameraLeft = computed(() => -canvasWidth.value / 2);
 const cameraRight = computed(() => canvasWidth.value / 2);
@@ -28,12 +28,14 @@ onMounted(() => {
 
 const gl = {
   toneMapping: NoToneMapping,
+  alpha: true,
+  antialias: true,
 };
 </script>
 
 <template>
-  <div class="relative flex h-100 w-full items-center justify-center gap-16 overflow-hidden">
-    <div class="flex flex-col items-center">
+  <div class="relative flex h-100 w-full items-center justify-center gap-16">
+    <div class="z-10 flex flex-col items-center select-none">
       <h2
         class="font-heading from-rust to-glow mb-4 inline-block bg-linear-to-r bg-clip-text pb-2 text-6xl font-bold tracking-wide text-transparent"
       >
@@ -41,7 +43,7 @@ const gl = {
       </h2>
 
       <div class="forgehex-badge w-120 flex-none">
-        <Logo class="text-rust hover:text-glow transition-colors" />
+        <Logo class="text-rust hover:text-glow h-auto w-full transition-colors" />
       </div>
     </div>
 
@@ -53,20 +55,12 @@ const gl = {
         <TresCanvas v-if="mounted" v-bind="gl" clear-color="#00000000">
           <TresOrthographicCamera
             :position="[20, 15, 20]"
-            :look-at="[0, 0, 0]"
+            :look-at="cameraTarget"
             :left="cameraLeft"
             :right="cameraRight"
             :top="cameraTop"
             :bottom="cameraBottom"
             :zoom="modelScale"
-          />
-
-          <OrbitControls
-            :enable-zoom="false"
-            :enable-pan="false"
-            :enable-rotate="false"
-            :auto-rotate="true"
-            :auto-rotate-speed="2.0"
           />
 
           <TresAmbientLight :intensity="0.5" />
