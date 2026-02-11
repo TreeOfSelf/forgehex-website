@@ -13,7 +13,9 @@ const isActive = (path: string) => {
   >
     <div class="forgehex-badge-square flex-none">
       <NuxtLink to="/">
-        <LogoSquare class="text-rust hover:text-glow text-4xl transition-colors duration-200" />
+        <LogoSquare
+          class="text-rust hover:text-glow h-[35px]! w-[35px]! text-4xl transition-colors duration-200"
+        />
       </NuxtLink>
     </div>
 

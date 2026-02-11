@@ -10,7 +10,10 @@
 }
 
 .nuxt-icon {
+  height: auto !important;
+  width: auto !important;
   margin-bottom: 0 !important;
+  vertical-align: baseline !important;
 }
 
 a:not([class*='text-']) {
@@ -23,18 +26,63 @@ a:not([class*='text-']):hover {
   color: var(--color-glow);
 }
 
-.forgehex-badge-square {
-  padding: 4px;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background-color: var(--color-void);
+.forgehex-badge {
+  padding: 1em;
+
+  --cut: 20px;
+
+  clip-path: polygon(
+    var(--cut) 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut)),
+    0 var(--cut)
+  );
+  background-color: #212121;
+  text-align: center;
+  container-type: inline-size;
+  fill: #f39658;
+  color: #b0b8c1;
   transition: all 0.2s ease;
   display: block;
+}
+
+.forgehex-badge h2 {
+  font-size: 9cqw;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.forgehex-badge .forgehex-cog {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.forgehex-badge:hover {
+  fill: #a3a3ff;
+  color: #dee3e8;
 }
 
 .forgehex-badge-square .forgehex-cog {
   transform-origin: center;
   transform-box: fill-box;
   transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.forgehex-badge:hover .forgehex-cog {
+  transform: rotate(360deg);
+}
+
+.forgehex-badge-square {
+  padding: 4px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: var(--color-void);
+  transition: all 0.2s ease;
+  display: block;
 }
 
 .forgehex-badge-square:hover .forgehex-cog {

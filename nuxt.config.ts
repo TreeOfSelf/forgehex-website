@@ -29,7 +29,10 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', 'nuxt-svgo', '@nuxt/image'],
+  modules: ['@nuxt/eslint', 'nuxt-svgo', '@nuxt/image', '@tresjs/nuxt'],
+  tres: {
+    devtools: true,
+  },
   image: {
     format: ['avif', 'webp'],
     quality: 70,

@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('AnonymousPro-Bold.woff2') format('woff2');
+  src: url('/fonts/AnonymousPro-Bold.woff2') format('woff2');
 }
 
 @theme {
