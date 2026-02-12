@@ -1,3 +1,6 @@
 <template>
-  <HomeHero />
+  <div>
+    <HomeHero />
+    <HomePillars />
+  </div>
 </template>
