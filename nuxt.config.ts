@@ -27,6 +27,14 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     },
   },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom-icons',
+        dir: './app/assets/icon',
+      },
+    ],
+  },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', 'nuxt-svgo', '@nuxt/image', '@tresjs/nuxt', '@nuxt/icon'],

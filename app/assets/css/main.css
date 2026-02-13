@@ -16,13 +16,13 @@
   vertical-align: baseline !important;
 }
 
-a:not([class*='text-']) {
+a:not([class*='text-'], [class*='group']) {
   color: var(--color-main);
   transition-property: color;
   transition-duration: var(--default-transition-duration);
 }
 
-a:not([class*='text-']):hover {
+a:not([class*='text-'], [class*='group']):hover {
   color: var(--color-glow);
 }
 
